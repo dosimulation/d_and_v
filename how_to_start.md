@@ -1,6 +1,6 @@
 ## Writing Our first Django App with a Database ##
 
-[This tutorial is very helpful](https://docs.djangoproject.com/en/2.2/intro/tutorial01/)
+I have followed [this tutorial](https://docs.djangoproject.com/en/2.2/intro/tutorial01/), it is extremely helpful. 
 
 ## Step 1 ##
 
@@ -164,22 +164,18 @@ After loggin in, you will see the following.
 ![admin page](/images_folder/step5.png)
 
 
+## Step 7 ## 
 
-when the database is messed up (or has some errors):
+Adding import and export functionality
+
+## Step 8 ##
+
+When the database is messed up (or has some errors):
 
 1. rm db.sqlite3
 2. rm folder migrations
-3. python manage.py makemigrations InputData
-4. python manage.py migrate --fake InputData
+3. python manage.py makemigrations database_component
+4. python manage.py migrate --fake database_component
 5. python manage.py migrate 
 6. python manage.py createsuperuser  -- This is a necessay step, since the database 
                                      -- needs to be rebuilt
-
-
-Considerations in building the database
-
-1. enabling updating 
-2. enabling manually adding records
-
-
-
