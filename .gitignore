@@ -1,0 +1,6 @@
+# primary files to ignore
+*~
+*.pyc
+.gitattributes
+
+# other vs files
