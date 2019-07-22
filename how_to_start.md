@@ -88,7 +88,6 @@ class TransSurvey(models.Model):
 From the command line, here is what happens:
 
 ```
-
 D:\work\abbott\d_and_v\abbott>python manage.py makemigrations database_component
 Migrations for 'database_component':
   database_component\migrations\0001_initial.py
@@ -118,8 +117,24 @@ Running migrations:
   Applying database_component.0001_initial... OK
   Applying sessions.0001_initial... OK
   ```
-  
+ 
  ## Step 4 ##
+ 
+These database elements have been created, but they will not show up on our website yet. We need to tell Django to show them on the Admin page. 
+
+```python
+#database_component\admin.py
+from django.contrib import admin
+
+# Register your models here.
+from .models import TransLog
+from .models import TransSurvey
+admin.site.register(TransLog)
+admin.site.register(TransSurvey)
+```
+ 
+ 
+ ## Step 5 ##
 
 Now if we want to see the webpage, we need to create access for ourselves. 
 
@@ -136,15 +151,15 @@ Bypass password validation and create user anyway? [y/N]: y
 Superuser created successfully.
 ```
 
-## Step 5 ##
+## Step 6 ##
 
-We can test our Server
+We can test our Server now. 
 
 ```
 D:\work\abbott\d_and_v\abbott>python manage.py runserver
 ```
 
-
+After loggin in, you will see the following. 
 
 
 
