@@ -4,3 +4,4 @@
 .gitattributes
 
 # other vs files
+abbott/__pycache__/
