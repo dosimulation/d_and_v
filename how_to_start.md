@@ -1,6 +1,6 @@
 ## Writing Our first Django App with a Database ##
 
-[This tutorial is very helpful](https://docs.djangoproject.com/en/2.2/intro/tutorial01/)
+I have followed [this tutorial](https://docs.djangoproject.com/en/2.2/intro/tutorial01/), it is extremely helpful. 
 
 ## Step 1 ##
 
@@ -161,23 +161,65 @@ D:\work\abbott\d_and_v\abbott>python manage.py runserver
 
 After loggin in, you will see the following. 
 
+![admin page](/images_folder/step5.png)
 
 
-when the database is messed up (or has some errors):
+## Step 7 ## 
+
+Adding import and export functionality. 
+
+This [page](https://simpleisbetterthancomplex.com/packages/2016/08/11/django-import-export.html)  provides very good step-by-step instructions. 
+
+```
+#database_component\admin.py
+from django.contrib import admin
+from import_export.admin import ImportExportModelAdmin
+# Register your models here.
+from .models import TransLog
+from .models import TransSurvey
+```
+
+Also add a new file "resources.py" under the same folder. 
+
+```
+from import_export import resources
+from .models import TransLog
+from .models import TransSurvey
+
+class TransLogResource(resources.ModelResource):
+    class Meta:
+        model = TransLog
+        fields = ('id', 'person_id', 'Date', 'pick_up_loc', 'drop_off_loc', 'Reason', 'first_time')
+        export_order = ('id', 'person_id', 'Date', 'pick_up_loc', 'drop_off_loc', 'Reason', 'first_time')
+
+class TransSurveyResource(resources.ModelResource):
+    class Meta:
+        model = TransSurvey
+        fields = ('id', 'person_id', 'Date', 'Question_1', 'Question_2', 'Question_3', 'Question_4')
+        export_order = ('id', 'person_id', 'Date', 'Question_1', 'Question_2', 'Question_3', 'Question_4')
+```
+
+# this will create the buttons for import and export as well
+@admin.register(TransLog)
+class TransLogAdmin(ImportExportModelAdmin):
+    pass
+
+@admin.register(TransSurvey)
+class TransSurveyAdmin(ImportExportModelAdmin):
+    pass
+```
+
+Now if you refresh your website and click on TransLog link, you will see the following:
+
+
+## Step 8 ##
+
+When the database is messed up (or has some errors):
 
 1. rm db.sqlite3
 2. rm folder migrations
-3. python manage.py makemigrations InputData
-4. python manage.py migrate --fake InputData
+3. python manage.py makemigrations database_component
+4. python manage.py migrate --fake database_component
 5. python manage.py migrate 
 6. python manage.py createsuperuser  -- This is a necessay step, since the database 
                                      -- needs to be rebuilt
-
-
-Considerations in building the database
-
-1. enabling updating 
-2. enabling manually adding records
-
-
-
