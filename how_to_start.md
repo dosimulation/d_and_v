@@ -161,6 +161,8 @@ D:\work\abbott\d_and_v\abbott>python manage.py runserver
 
 After loggin in, you will see the following. 
 
+![admin page](/images_folder/step5.png)
+
 
 
 when the database is messed up (or has some errors):
