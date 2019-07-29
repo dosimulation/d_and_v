@@ -182,6 +182,7 @@ from .models import TransSurvey
 Also add a new file "resources.py" under the same folder. 
 
 ```
+#resources.py
 from import_export import resources
 from .models import TransLog
 from .models import TransSurvey
@@ -199,6 +200,7 @@ class TransSurveyResource(resources.ModelResource):
         export_order = ('id', 'person_id', 'Date', 'Question_1', 'Question_2', 'Question_3', 'Question_4')
 ```
 
+```
 # this will create the buttons for import and export as well
 @admin.register(TransLog)
 class TransLogAdmin(ImportExportModelAdmin):
@@ -209,7 +211,11 @@ class TransSurveyAdmin(ImportExportModelAdmin):
     pass
 ```
 
-Now if you refresh your website and click on TransLog link, you will see the following:
+Now if you refresh your website and click on TransLog link, you will see the following.
+
+
+![step 7](/images_folder/step7.PNG)
+
 
 
 ## Step 8 ##
