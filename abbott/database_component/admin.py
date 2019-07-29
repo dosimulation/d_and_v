@@ -7,6 +7,7 @@ from .models import TransSurvey
 
 # this will create the buttons for import and export as well
 @admin.register(TransLog)
+
 class TransLogAdmin(ImportExportModelAdmin):
     pass
 
