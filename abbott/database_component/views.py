@@ -9,7 +9,17 @@ from django.utils.crypto import get_random_string
 # Create your views here.
 def index(request):
     return render(request, 'index.html')
-    
+
+def transportation(request):
+    return render(request, 'transportation.html')
+
+def diabetes(request):
+    return render(request, 'diabetes.html')
+
+def nutrition(request):
+    return render(request, 'nutrition.html')
+
+
 def login_view(request):
     if request.user.is_authenticated:
         return redirect('/')
