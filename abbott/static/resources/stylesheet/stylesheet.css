@@ -132,3 +132,19 @@ line-height: 1.6;
 margin: 0% 3.5%;
 font-size:20px;	
 }
+
+
+section.twoColumn { 
+	.column {
+     float: left;
+     width: 50%;
+    padding: 10px;
+    }
+    .row:after {
+  content: "";
+  display: table;
+  clear: both;
+    }
+}
+section.twoColumn * { padding: 5px; } 
+
