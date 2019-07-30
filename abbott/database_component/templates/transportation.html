@@ -57,7 +57,9 @@
   <div class="column whiteBg">
     <p>
 	Data points (from MTS Driver Log, representing all participants; anticipated n=1200 over 3-month period):
-Total # participants over 3-month period, including participation trends (i.e., increases/decreases) from Month 1 to Month 2 to Month 3
+</p>
+<p>
+Total {{ nobs }} participants over 3-month period, including participation trends (i.e., increases/decreases) from Month 1 to Month 2 to Month 3
 Comparison of use by type of service, i.e., door-to-door van or circuit van; measures of initial uptake and frequency of participants’ repeated use by service type over a 3-month period (i.e., range/average # rides per unique user over 3-month period
 Draft template narrative: 
 Use of MTS was documented by daily driver logs which gather information from all passengers regarding their pick-up and drop-off locations, the reasons for their visits/appointments, whether the visit was related to diabetes, and whether or not they were a first-time passenger.
@@ -67,6 +69,13 @@ There was a XX percent increase in overall use from Month 1 to Month 3 with qqq 
 Participants gave many different reasons for their use of MTS: XX% reported visits for primary care check-ups; YY% reported visits for preventive health care, such as flu shots; ZZ% were going to the pharmacy; QQ % were visiting for lab work; etc...
 XX % reported that their visit was related to diabetes.
    </p></div>
+
+   {% if graph %}
+<div style="width:600;height:500">
+{{ graph|safe }}
+</div>
+{% endif %}
+
     <div class="column" style="background-color:#bbb;">
     <p>Some text..
     Some text..
